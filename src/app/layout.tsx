@@ -4,6 +4,8 @@ import type { Metadata } from "next";
 import { NextIntlClientProvider } from "next-intl";
 import { getLocale, getMessages } from "next-intl/server";
 
+import { twMerge } from "tailwind-merge";
+
 import copy from "@/data/copy.json";
 
 import { BASE_URL } from "@/helpers/constants";
@@ -28,15 +30,19 @@ export const metadata: Metadata = {
   },
 };
 
-const RootLayout = async ({
-  children,
-}: Readonly<{ children: React.ReactNode }>) => {
+const RootLayout = async ({ children }: Readonly<{ children: React.ReactNode }>) => {
   const locale = await getLocale();
   const messages = await getMessages();
 
   return (
     <html lang={locale}>
-      <body className="font-sans bg-cream text-dark selection:bg-dark selection:text-cream">
+      <body
+        className={twMerge(
+          "font-sans",
+          "bg-cream text-dark",
+          "selection:bg-dark selection:text-cream",
+        )}
+      >
         <NextIntlClientProvider locale={locale} messages={messages}>
           {children}
         </NextIntlClientProvider>

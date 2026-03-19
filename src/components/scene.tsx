@@ -1,5 +1,7 @@
 "use client";
 
+import { twMerge } from "tailwind-merge";
+
 import type { AtlasConfig } from "@/types";
 
 import atlasConfig from "@/data/atlas.json";
@@ -35,7 +37,7 @@ const SCENE_GRID: SceneCell[] = [
 
 export const Scene = () => {
   return (
-    <div className="grid grid-cols-3 sm:grid-cols-4 items-end justify-items-center">
+    <div className={twMerge("grid grid-cols-3 items-end justify-items-center", "sm:grid-cols-4")}>
       {SCENE_GRID.map((cell, index) => {
         if (cell.type === "empty") {
           return <div key={index} className="col-span-1" />;
@@ -45,20 +47,12 @@ export const Scene = () => {
         }
         if (cell.type === "static") {
           return (
-            <AtlasStatic
-              key={index}
-              atlasConfig={atlasConfig as AtlasConfig}
-              actor={cell.actor}
-            />
+            <AtlasStatic key={index} atlasConfig={atlasConfig as AtlasConfig} actor={cell.actor} />
           );
         }
         if (cell.type === "link") {
           return (
-            <ActorOctocat
-              key={index}
-              atlasConfig={atlasConfig as AtlasConfig}
-              href={cell.href}
-            />
+            <ActorOctocat key={index} atlasConfig={atlasConfig as AtlasConfig} href={cell.href} />
           );
         }
       })}

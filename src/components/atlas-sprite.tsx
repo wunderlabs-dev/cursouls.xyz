@@ -19,19 +19,20 @@ interface AtlasSpriteProps {
 
 export const AtlasSprite = forwardRef<AtlasSpriteHandle, AtlasSpriteProps>(
   ({ atlasConfig, animationConfig, defaultAnimation, onComplete, className }, ref) => {
-    const idleKey = first(animationConfig.anims)?.key;
+    const idleKey = first(animationConfig.anims)!.key;
 
     const { count, increment } = useCounter();
-    const [animationName, setAnimationName] = useState(
-      defaultAnimation ?? idleKey,
-    );
+    const [animationName, setAnimationName] = useState(defaultAnimation ?? idleKey);
 
     const play = useCallback(
       (name: string) => {
-        if (some(animationConfig.anims, { key: name })) {
-          setAnimationName(name);
-          increment();
+        const animation = some(animationConfig.anims, { key: name });
+
+        if (isNil(animation)) {
+          return;
         }
+        setAnimationName(name);
+        increment();
       },
       [animationConfig.anims, increment],
     );
@@ -40,7 +41,9 @@ export const AtlasSprite = forwardRef<AtlasSpriteHandle, AtlasSpriteProps>(
       ref,
       () => ({
         play,
-        get current() { return animationName; },
+        get current() {
+          return animationName;
+        },
       }),
       [play, animationName],
     );

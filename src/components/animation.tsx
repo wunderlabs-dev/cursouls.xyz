@@ -22,12 +22,7 @@ export const Animation = ({
   className,
   onComplete,
 }: AnimationProps) => {
-  const position = useSpriteAnimation(
-    atlasConfig,
-    animationConfig,
-    animationName,
-    onComplete,
-  );
+  const position = useSpriteAnimation(atlasConfig, animationConfig, animationName, onComplete);
 
   if (isNil(position)) {
     return null;
@@ -35,11 +30,10 @@ export const Animation = ({
 
   return (
     <div
-      className={twMerge("bg-no-repeat", className)}
+      className={twMerge("bg-no-repeat bg-atlas-sprite", className)}
       style={{
         width: animationConfig.width,
         height: animationConfig.height,
-        backgroundImage: "url(/images/atlas.png)",
         backgroundPositionX: -position.x,
         backgroundPositionY: -position.y,
       }}

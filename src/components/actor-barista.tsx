@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef } from "react";
+import { twMerge } from "tailwind-merge";
 
 import type { AtlasConfig, AtlasSpriteHandle } from "@/types";
 
@@ -15,7 +16,7 @@ export const ActorBarista = () => {
   return (
     <div
       role="button"
-      className="max-w-full mx-auto shrink-0"
+      className={twMerge("shrink-0", "max-w-full mx-auto")}
       style={{
         width: config.width,
         height: config.height,
@@ -25,7 +26,7 @@ export const ActorBarista = () => {
       <AtlasSprite
         ref={spriteRef}
         atlasConfig={atlasConfig as AtlasConfig}
-        className="relative left-1/2 -translate-x-1/2"
+        className={twMerge("relative left-1/2", "-translate-x-1/2")}
         animationConfig={config}
       />
     </div>
