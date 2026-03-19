@@ -13,8 +13,18 @@ interface AnimationProps {
   onComplete?: () => void;
 }
 
-const Animation = ({ atlasConfig, animationConfig, animationName, onComplete }: AnimationProps) => {
-  const position = useSpriteAnimation(atlasConfig, animationConfig, animationName, onComplete);
+const Animation = ({
+  atlasConfig,
+  animationConfig,
+  animationName,
+  onComplete,
+}: AnimationProps) => {
+  const position = useSpriteAnimation(
+    atlasConfig,
+    animationConfig,
+    animationName,
+    onComplete,
+  );
 
   if (isNil(position)) {
     return null;

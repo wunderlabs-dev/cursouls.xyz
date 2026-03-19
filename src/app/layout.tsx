@@ -26,7 +26,9 @@ export const metadata: Metadata = {
   },
 };
 
-const RootLayout = async ({ children }: Readonly<{ children: React.ReactNode }>) => {
+const RootLayout = async ({
+  children,
+}: Readonly<{ children: React.ReactNode }>) => {
   const locale = await getLocale();
   const messages = await getMessages();
 

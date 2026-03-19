@@ -26,13 +26,13 @@ npm run dev
 
 ### Scripts
 
-| Command | Description |
-|---|---|
-| `npm run dev` | Start dev server |
-| `npm run build` | Static export to `out/` |
-| `npm run lint` | Run ESLint |
-| `npm run format` | Format with oxfmt |
-| `npm run format:check` | Check formatting |
+| Command                | Description             |
+| ---------------------- | ----------------------- |
+| `npm run dev`          | Start dev server        |
+| `npm run build`        | Static export to `out/` |
+| `npm run lint`         | Run ESLint              |
+| `npm run format`       | Format with oxfmt       |
+| `npm run format:check` | Check formatting        |
 
 ### Authors
 

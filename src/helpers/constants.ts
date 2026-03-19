@@ -4,7 +4,11 @@ const WORKING_DURATION_MIN = 4000;
 const WORKING_DURATION_RANGE = 6000;
 
 const AGENT_SKINS = ["agent-01", "agent-02", "agent-03", "agent-04"] as const;
-const AGENT_RANDOM_ANIMATIONS = ["task-complete", "task-failed", "clarification-needed"] as const;
+const AGENT_RANDOM_ANIMATIONS = [
+  "task-complete",
+  "task-failed",
+  "clarification-needed",
+] as const;
 
 const AGENT_TASKS = [
   "Refactoring auth module",

@@ -46,7 +46,9 @@ const Home = () => {
       <div className="flex flex-col items-center justify-center gap-8">
         <div className="flex flex-col items-center justify-center max-w-xl gap-4">
           <h1 className="text-4xl text-balance">{t("title")}</h1>
-          <p className="max-w-sm text-base text-center text-pretty leading-relaxed text-dark/60">{t("description")}</p>
+          <p className="max-w-sm text-base text-center text-pretty leading-relaxed text-dark/60">
+            {t("description")}
+          </p>
         </div>
 
         <Link
@@ -59,7 +61,10 @@ const Home = () => {
 
         <div className="grid grid-cols-4 items-end justify-items-center w-full">
           <div className="col-span-1" />
-          <AtlasStatic atlasConfig={atlasConfig as AtlasConfig} actor="vertical-table-01" />
+          <AtlasStatic
+            atlasConfig={atlasConfig as AtlasConfig}
+            actor="vertical-table-01"
+          />
           <ActorAgent />
           <AtlasStatic atlasConfig={atlasConfig as AtlasConfig} actor="plant" />
           <a
@@ -68,19 +73,27 @@ const Home = () => {
             rel="noopener noreferrer"
             className="cursor-pointer"
           >
-            <AtlasStatic atlasConfig={atlasConfig as AtlasConfig} actor="octocat" />
+            <AtlasStatic
+              atlasConfig={atlasConfig as AtlasConfig}
+              actor="octocat"
+            />
           </a>
           <ActorAgent />
           <AtlasStatic atlasConfig={atlasConfig as AtlasConfig} actor="plant" />
           <ActorAgent />
           <div className="col-span-1" />
-          <AtlasStatic atlasConfig={atlasConfig as AtlasConfig} actor="round-table-02" />
+          <AtlasStatic
+            atlasConfig={atlasConfig as AtlasConfig}
+            actor="round-table-02"
+          />
           <ActorAgent />
           <div className="col-span-1" />
         </div>
       </div>
 
-      <footer className="pt-6 text-xs text-dark/60">{t.rich("footer", renderers)}</footer>
+      <footer className="pt-6 text-xs text-dark/60">
+        {t.rich("footer", renderers)}
+      </footer>
     </div>
   );
 };

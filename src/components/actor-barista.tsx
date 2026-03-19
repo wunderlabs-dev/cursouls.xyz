@@ -22,7 +22,11 @@ const ActorBarista = () => {
       }}
       onClick={() => spriteRef.current?.play("long-counter/counter")}
     >
-      <AtlasSprite ref={spriteRef} atlasConfig={atlasConfig as AtlasConfig} animationConfig={config} />
+      <AtlasSprite
+        ref={spriteRef}
+        atlasConfig={atlasConfig as AtlasConfig}
+        animationConfig={config}
+      />
     </button>
   );
 };

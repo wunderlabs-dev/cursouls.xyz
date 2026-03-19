@@ -21,7 +21,9 @@ const AtlasSprite = forwardRef<AtlasSpriteHandle, AtlasSpriteProps>(
     const idleKey = first(animationConfig.anims)?.key;
 
     const { count, increment } = useCounter();
-    const [animationName, setAnimationName] = useState(defaultAnimation ?? idleKey);
+    const [animationName, setAnimationName] = useState(
+      defaultAnimation ?? idleKey,
+    );
 
     const play = useCallback(
       (name: string) => {

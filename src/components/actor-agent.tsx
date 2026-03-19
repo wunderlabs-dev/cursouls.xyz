@@ -1,12 +1,21 @@
 "use client";
 
-import { type ComponentType, type ReactNode, useCallback, useRef, useState } from "react";
+import {
+  type ComponentType,
+  type ReactNode,
+  useCallback,
+  useRef,
+  useState,
+} from "react";
 import { sample } from "lodash";
 import { useTimeout } from "usehooks-ts";
 import ReactFastMarquee from "react-fast-marquee";
 
-const Marquee = ((ReactFastMarquee as unknown as { default?: ComponentType<{ children?: ReactNode }> }).default ??
-  ReactFastMarquee) as ComponentType<{ children?: ReactNode }>;
+const Marquee = ((
+  ReactFastMarquee as unknown as {
+    default?: ComponentType<{ children?: ReactNode }>;
+  }
+).default ?? ReactFastMarquee) as ComponentType<{ children?: ReactNode }>;
 
 import type { AtlasConfig, AtlasSpriteHandle } from "@/types";
 import type { Phase } from "@/helpers/types";
@@ -33,10 +42,14 @@ const ActorAgent = () => {
 
   const [skin] = useState(() => sample(AGENT_SKINS)!);
   const [task] = useState(() => sample(AGENT_TASKS)!);
-  const [spawnDelay] = useState(() => randomDelay(SPAWN_DELAY_MIN, SPAWN_DELAY_RANGE));
+  const [spawnDelay] = useState(() =>
+    randomDelay(SPAWN_DELAY_MIN, SPAWN_DELAY_RANGE),
+  );
 
   const spriteRef = useRef<AtlasSpriteHandle>(null);
-  const workingTimerRef = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
+  const workingTimerRef = useRef<ReturnType<typeof setTimeout> | undefined>(
+    undefined,
+  );
 
   const config = (atlasConfig as AtlasConfig).actors[skin];
   const bubbleConfig = (atlasConfig as AtlasConfig).actors.bubble;
@@ -76,15 +89,24 @@ const ActorAgent = () => {
   useTimeout(() => play("spawn", "spawn"), spawnDelay);
 
   return (
-    <div className="group relative cursor-help" style={{ width: config.width, height: config.height }}>
+    <div
+      className="group relative cursor-help"
+      style={{ width: config.width, height: config.height }}
+    >
       {canSeeText ? (
         <div className="absolute bottom-14 right-1 hidden group-hover:block">
           <div className="absolute left-0 right-0 top-0 bottom-1 px-1">
             <Marquee>
-              <span className="block px-1 text-xs leading-3 uppercase whitespace-nowrap">{task}</span>
+              <span className="block px-1 text-xs leading-3 uppercase whitespace-nowrap">
+                {task}
+              </span>
             </Marquee>
           </div>
-          <Animation animationName="bubble" atlasConfig={atlasConfig as AtlasConfig} animationConfig={bubbleConfig} />
+          <Animation
+            animationName="bubble"
+            atlasConfig={atlasConfig as AtlasConfig}
+            animationConfig={bubbleConfig}
+          />
         </div>
       ) : null}
 
