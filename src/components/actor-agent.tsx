@@ -92,7 +92,7 @@ export const ActorAgent = () => {
       className="group relative cursor-help"
       style={{
         width: config.width,
-        height: config.height
+        height: config.height,
       }}
     >
       {phase === "spawn" || phase === "working" ? (

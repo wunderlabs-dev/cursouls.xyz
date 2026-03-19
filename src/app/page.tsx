@@ -24,7 +24,11 @@ const SCENE_GRID: SceneCell[] = [
   { type: "static", actor: "vertical-table-01" },
   { type: "agent" },
   { type: "static", actor: "plant" },
-  { type: "link", actor: "octocat", href: "https://github.com/wunderlabs-dev/cursouls" },
+  {
+    type: "link",
+    actor: "octocat",
+    href: "https://github.com/wunderlabs-dev/cursouls",
+  },
   { type: "agent" },
   { type: "static", actor: "plant" },
   { type: "agent" },
