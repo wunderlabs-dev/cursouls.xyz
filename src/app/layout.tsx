@@ -7,6 +7,7 @@ import { getLocale, getMessages } from "next-intl/server";
 import copy from "@/data/copy.json";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://cursouls.xyz"),
   title: copy.title,
   description: copy.description,
   icons: {
