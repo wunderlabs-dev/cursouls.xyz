@@ -13,9 +13,9 @@ export const ActorBarista = () => {
   const config = (atlasConfig as AtlasConfig).actors["long-counter"];
 
   return (
-    <button
-      type="button"
-      className="shrink-0 mx-auto"
+    <div
+      role="button"
+      className="max-w-full mx-auto shrink-0"
       style={{
         width: config.width,
         height: config.height,
@@ -25,8 +25,9 @@ export const ActorBarista = () => {
       <AtlasSprite
         ref={spriteRef}
         atlasConfig={atlasConfig as AtlasConfig}
+        className="relative left-1/2 -translate-x-1/2"
         animationConfig={config}
       />
-    </button>
+    </div>
   );
 };

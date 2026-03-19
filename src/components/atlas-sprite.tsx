@@ -14,10 +14,11 @@ interface AtlasSpriteProps {
   animationConfig: ActorConfig;
   defaultAnimation?: string;
   onComplete?: () => void;
+  className?: string;
 }
 
 export const AtlasSprite = forwardRef<AtlasSpriteHandle, AtlasSpriteProps>(
-  ({ atlasConfig, animationConfig, defaultAnimation, onComplete }, ref) => {
+  ({ atlasConfig, animationConfig, defaultAnimation, onComplete, className }, ref) => {
     const idleKey = first(animationConfig.anims)?.key;
 
     const { count, increment } = useCounter();
@@ -39,9 +40,7 @@ export const AtlasSprite = forwardRef<AtlasSpriteHandle, AtlasSpriteProps>(
       ref,
       () => ({
         play,
-        get current() {
-          return animationName ?? "";
-        },
+        get current() { return animationName; },
       }),
       [play, animationName],
     );
@@ -53,6 +52,7 @@ export const AtlasSprite = forwardRef<AtlasSpriteHandle, AtlasSpriteProps>(
     return (
       <Animation
         key={count}
+        className={className}
         atlasConfig={atlasConfig}
         animationConfig={animationConfig}
         animationName={animationName}

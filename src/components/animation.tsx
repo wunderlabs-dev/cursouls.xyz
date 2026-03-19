@@ -1,6 +1,7 @@
 "use client";
 
 import { isNil } from "lodash";
+import { twMerge } from "tailwind-merge";
 
 import type { ActorConfig, AtlasConfig } from "@/types";
 
@@ -11,12 +12,14 @@ interface AnimationProps {
   animationConfig: ActorConfig;
   animationName: string;
   onComplete?: () => void;
+  className?: string;
 }
 
 export const Animation = ({
   atlasConfig,
   animationConfig,
   animationName,
+  className,
   onComplete,
 }: AnimationProps) => {
   const position = useSpriteAnimation(
@@ -32,7 +35,7 @@ export const Animation = ({
 
   return (
     <div
-      className="bg-no-repeat"
+      className={twMerge("bg-no-repeat", className)}
       style={{
         width: animationConfig.width,
         height: animationConfig.height,

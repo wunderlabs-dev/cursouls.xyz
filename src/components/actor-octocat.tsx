@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useBoolean } from "usehooks-ts";
 
 import type { AtlasConfig } from "@/types";
 
@@ -12,7 +12,7 @@ interface ActorOctocatProps {
 }
 
 export const ActorOctocat = ({ atlasConfig, href }: ActorOctocatProps) => {
-  const [hovered, setHovered] = useState(false);
+  const { value, setTrue, setFalse } = useBoolean();
 
   return (
     <a
@@ -20,13 +20,13 @@ export const ActorOctocat = ({ atlasConfig, href }: ActorOctocatProps) => {
       target="_blank"
       rel="noopener noreferrer"
       className="cursor-pointer"
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
+      onMouseEnter={setTrue}
+      onMouseLeave={setFalse}
     >
       <Animation
         atlasConfig={atlasConfig}
         animationConfig={atlasConfig.actors["octocat"]}
-        animationName={hovered ? "octocat/idle" : "octocat"}
+        animationName={value ? "octocat/idle" : "octocat"}
       />
     </a>
   );
