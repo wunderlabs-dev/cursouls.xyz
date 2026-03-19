@@ -77,7 +77,7 @@ const Home = () => {
         </div>
 
         <Link
-          href="/"
+          href="cursor:extension/wunderlabs.cursouls"
           className="flex items-center gap-4 px-5 py-3 text-sm bg-dark text-cream transition-transform duration-100 ease-out hover:-translate-y-0.5 active:scale-95"
         >
           <SvgIconCursor className="h-4 w-4" />
