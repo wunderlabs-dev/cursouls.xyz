@@ -7010,6 +7010,15 @@
         "w": 93,
         "h": 19
       }
+    },
+    {
+      "filename": "octocat",
+      "frame": {
+        "x": 482,
+        "y": 1745,
+        "w": 21,
+        "h": 28
+      }
     }
   ],
   "actors": {
@@ -10336,6 +10345,24 @@
             {
               "key": "atlas",
               "frame": "bubble"
+            }
+          ]
+        }
+      ]
+    },
+    "octocat": {
+      "width": 21,
+      "height": 28,
+      "anims": [
+        {
+          "key": "octocat",
+          "type": "frames",
+          "repeat": 0,
+          "frameRate": 1,
+          "frames": [
+            {
+              "key": "atlas",
+              "frame": "octocat"
             }
           ]
         }

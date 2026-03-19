@@ -17,7 +17,7 @@ type SceneCell = { type: "empty" } | { type: "agent" } | { type: "static"; actor
 
 const SCENE_GRID: SceneCell[][] = [
   [{ type: "empty" }, { type: "static", actor: "vertical-table-01" }, { type: "agent" }, { type: "static", actor: "plant" }],
-  [{ type: "static", actor: "round-table-01" }, { type: "agent" }, { type: "static", actor: "plant" }, { type: "agent" }],
+  [{ type: "static", actor: "octocat" }, { type: "agent" }, { type: "static", actor: "plant" }, { type: "agent" }],
   [{ type: "empty" }, { type: "static", actor: "round-table-02" }, { type: "agent" }, { type: "empty" }],
 ];
 
