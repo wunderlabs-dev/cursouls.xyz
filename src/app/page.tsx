@@ -63,7 +63,7 @@ const Home = () => {
           <ActorAgent />
           <AtlasStatic atlasConfig={atlasConfig as AtlasConfig} actor="plant" />
           <a
-            href="https://github.com/vtemian/cursouls"
+            href="https://github.com/wunderlabs-dev/cursouls"
             target="_blank"
             rel="noopener noreferrer"
             className="cursor-pointer"
