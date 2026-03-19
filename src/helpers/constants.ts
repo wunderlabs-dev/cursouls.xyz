@@ -1,5 +1,8 @@
 export const BASE_URL = "https://cursouls.xyz";
 
+export const OG_IMAGE_WIDTH = 1200;
+export const OG_IMAGE_HEIGHT = 630;
+
 export const SPAWN_DELAY_MIN = 1000;
 export const SPAWN_DELAY_RANGE = 2500;
 export const WORKING_DURATION_MIN = 4000;

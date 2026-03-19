@@ -91,7 +91,7 @@ export const ActorAgent = () => {
 
   return (
     <div
-      className="group relative cursor-help"
+      className="group relative cursor-help select-none"
       style={{
         width: config.width,
         height: config.height,

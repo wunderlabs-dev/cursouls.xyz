@@ -8,7 +8,7 @@ import { twMerge } from "tailwind-merge";
 
 import copy from "@/data/copy.json";
 
-import { BASE_URL } from "@/helpers/constants";
+import { BASE_URL, OG_IMAGE_WIDTH, OG_IMAGE_HEIGHT } from "@/helpers/constants";
 
 export const metadata: Metadata = {
   metadataBase: new URL(BASE_URL),
@@ -18,15 +18,17 @@ export const metadata: Metadata = {
     icon: "/favicon.svg",
   },
   openGraph: {
+    type: "website",
+    url: BASE_URL,
     title: copy.title,
     description: copy.description,
-    images: [{ url: "/images/og.png" }],
+    images: [{ url: "/images/og.png", width: OG_IMAGE_WIDTH, height: OG_IMAGE_HEIGHT }],
   },
   twitter: {
     card: "summary_large_image",
     title: copy.title,
     description: copy.description,
-    images: ["/images/og.png"],
+    images: [{ url: "/images/og.png", width: OG_IMAGE_WIDTH, height: OG_IMAGE_HEIGHT }],
   },
 };
 
