@@ -51,7 +51,7 @@ export const useSpriteAnimation = (
         if (prev < lastFrame) return prev + FRAME_STEP;
         if (loops) return FRAME_INDEX_START;
         clearInterval(interval);
-        onComplete?.();
+        queueMicrotask(() => onComplete?.());
         return prev;
       });
     }, frameDuration);

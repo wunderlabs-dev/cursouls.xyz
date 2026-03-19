@@ -1,10 +1,14 @@
+import "./globals.css";
+
 import type { Metadata } from "next";
 import { NextIntlClientProvider } from "next-intl";
 import { getLocale, getMessages } from "next-intl/server";
-import "./globals.css";
+
+import copy from "@/data/copy.json";
 
 export const metadata: Metadata = {
-  title: "cursouls",
+  title: copy.title,
+  description: copy.description,
 };
 
 const RootLayout = async ({ children }: Readonly<{ children: React.ReactNode }>) => {
@@ -13,7 +17,7 @@ const RootLayout = async ({ children }: Readonly<{ children: React.ReactNode }>)
 
   return (
     <html lang={locale}>
-      <body className="bg-cream font-sans text-dark">
+      <body className="font-sans bg-cream text-dark">
         <NextIntlClientProvider locale={locale} messages={messages}>
           {children}
         </NextIntlClientProvider>

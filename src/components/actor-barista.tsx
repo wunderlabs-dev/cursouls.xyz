@@ -9,20 +9,20 @@ import atlasConfig from "@/data/atlas.json";
 import { AtlasSprite } from "@/components/atlas-sprite";
 
 const ActorBarista = () => {
-  const counter = useRef<AtlasSpriteHandle>(null);
+  const spriteRef = useRef<AtlasSpriteHandle>(null);
   const config = (atlasConfig as AtlasConfig).actors["long-counter"];
 
   return (
     <button
       type="button"
-      className="mx-auto shrink-0"
+      className="shrink-0 mx-auto"
       style={{
         width: config.width,
         height: config.height,
       }}
-      onClick={() => counter.current?.play("long-counter/counter")}
+      onClick={() => spriteRef.current?.play("long-counter/counter")}
     >
-      <AtlasSprite ref={counter} atlasConfig={atlasConfig as AtlasConfig} animationConfig={config} />
+      <AtlasSprite ref={spriteRef} atlasConfig={atlasConfig as AtlasConfig} animationConfig={config} />
     </button>
   );
 };
