@@ -40,7 +40,7 @@ const Home = () => {
   const t = useTranslations();
 
   return (
-    <div className="flex flex-col items-center justify-start mx-auto max-w-2xl gap-8">
+    <div className="flex flex-col items-center justify-start mx-auto max-w-2xl gap-8 px-8 pb-8">
       <ActorBarista />
 
       <div className="flex flex-col items-center justify-center gap-8">
