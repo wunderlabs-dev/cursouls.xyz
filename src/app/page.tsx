@@ -13,13 +13,6 @@ import { ActorBarista } from "@/components/actor-barista";
 import { AtlasStatic } from "@/components/atlas-static";
 import { SvgIconCursor } from "@/components/svg-icon-cursor";
 
-type SceneCell = { type: "empty" } | { type: "agent" } | { type: "static"; actor: string };
-
-const SCENE_GRID: SceneCell[][] = [
-  [{ type: "empty" }, { type: "static", actor: "vertical-table-01" }, { type: "agent" }, { type: "static", actor: "plant" }],
-  [{ type: "static", actor: "octocat" }, { type: "agent" }, { type: "static", actor: "plant" }, { type: "agent" }],
-  [{ type: "empty" }, { type: "static", actor: "round-table-02" }, { type: "agent" }, { type: "empty" }],
-];
 
 const renderers = {
   marius: (chunks: ReactNode) => (
@@ -53,15 +46,20 @@ const Home = () => {
         </Link>
 
         <div className="grid grid-cols-4 items-end justify-items-center w-full">
-          {SCENE_GRID.flat().map((cell, index) =>
-            cell.type === "static" ? (
-              <AtlasStatic key={index} atlasConfig={atlasConfig as AtlasConfig} actor={cell.actor} />
-            ) : cell.type === "agent" ? (
-              <ActorAgent key={index} />
-            ) : (
-              <div key={index} className="col-span-1" />
-            ),
-          )}
+          <div className="col-span-1" />
+          <AtlasStatic atlasConfig={atlasConfig as AtlasConfig} actor="vertical-table-01" />
+          <ActorAgent />
+          <AtlasStatic atlasConfig={atlasConfig as AtlasConfig} actor="plant" />
+          <a href="https://github.com/vtemian/cursouls" target="_blank" rel="noopener noreferrer" className="cursor-pointer">
+            <AtlasStatic atlasConfig={atlasConfig as AtlasConfig} actor="octocat" />
+          </a>
+          <ActorAgent />
+          <AtlasStatic atlasConfig={atlasConfig as AtlasConfig} actor="plant" />
+          <ActorAgent />
+          <div className="col-span-1" />
+          <AtlasStatic atlasConfig={atlasConfig as AtlasConfig} actor="round-table-02" />
+          <ActorAgent />
+          <div className="col-span-1" />
         </div>
       </div>
 

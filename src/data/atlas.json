@@ -7015,9 +7015,9 @@
       "filename": "octocat",
       "frame": {
         "x": 482,
-        "y": 1745,
+        "y": 1749,
         "w": 21,
-        "h": 28
+        "h": 34
       }
     }
   ],
@@ -10352,7 +10352,7 @@
     },
     "octocat": {
       "width": 21,
-      "height": 28,
+      "height": 34,
       "anims": [
         {
           "key": "octocat",
