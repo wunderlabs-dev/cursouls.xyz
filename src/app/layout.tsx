@@ -15,7 +15,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: copy.title,
     description: copy.description,
-    images: [{ url: "/images/og.png", width: 1200, height: 630 }],
+    images: [{ url: "/images/og.png" }],
   },
   twitter: {
     card: "summary_large_image",
