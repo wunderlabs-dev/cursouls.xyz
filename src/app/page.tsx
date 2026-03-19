@@ -56,8 +56,19 @@ const Home = () => {
     >
       <ActorBarista />
 
-      <div className={twMerge("flex flex-col items-center justify-center", "gap-8 px-8")}>
-        <div className={twMerge("flex flex-col items-center justify-center", "max-w-xl", "gap-4")}>
+      <div
+        className={twMerge(
+          "flex flex-col items-center justify-center",
+          "gap-8 px-8",
+        )}
+      >
+        <div
+          className={twMerge(
+            "flex flex-col items-center justify-center",
+            "max-w-xl",
+            "gap-4",
+          )}
+        >
           <h1 className="text-4xl text-balance">{t("title")}</h1>
           <p
             className={twMerge(
@@ -89,7 +100,9 @@ const Home = () => {
         <Scene />
       </div>
 
-      <footer className="pt-6 text-xs text-dark/60">{t.rich("footer", renderers)}</footer>
+      <footer className="pt-6 text-xs text-dark/60">
+        {t.rich("footer", renderers)}
+      </footer>
     </div>
   );
 };

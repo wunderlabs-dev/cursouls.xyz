@@ -5,7 +5,10 @@ import { useCallback, useState } from "react";
 const COUNTER_STEP = 1;
 const COUNTER_START = 0;
 
-export const useCounter = (initialValue = COUNTER_START, step = COUNTER_STEP) => {
+export const useCounter = (
+  initialValue = COUNTER_START,
+  step = COUNTER_STEP,
+) => {
   const [count, setCount] = useState(initialValue);
 
   const increment = useCallback(() => {

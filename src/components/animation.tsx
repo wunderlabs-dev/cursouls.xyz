@@ -22,7 +22,12 @@ export const Animation = ({
   className,
   onComplete,
 }: AnimationProps) => {
-  const position = useSpriteAnimation(atlasConfig, animationConfig, animationName, onComplete);
+  const position = useSpriteAnimation(
+    atlasConfig,
+    animationConfig,
+    animationName,
+    onComplete,
+  );
 
   if (isNil(position)) {
     return null;
