@@ -10,6 +10,7 @@ import atlasConfig from "@/data/atlas.json";
 
 import { ActorAgent } from "@/components/actor-agent";
 import { ActorBarista } from "@/components/actor-barista";
+import { ActorOctocat } from "@/components/actor-octocat";
 import { AtlasStatic } from "@/components/atlas-static";
 import { SvgIconCursor } from "@/components/svg-icon-cursor";
 
@@ -103,18 +104,11 @@ const Home = () => {
             }
             if (cell.type === "link") {
               return (
-                <a
+                <ActorOctocat
                   key={index}
+                  atlasConfig={atlasConfig as AtlasConfig}
                   href={cell.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="cursor-pointer"
-                >
-                  <AtlasStatic
-                    atlasConfig={atlasConfig as AtlasConfig}
-                    actor={cell.actor}
-                  />
-                </a>
+                />
               );
             }
           })}
