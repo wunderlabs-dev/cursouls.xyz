@@ -40,8 +40,9 @@ import { AtlasSprite } from "@/components/atlas-sprite";
 export const ActorAgent = () => {
   const [phase, setPhase] = useState<Phase>("idle");
 
-  const [skin] = useState(() => sample(AGENT_SKINS)!);
-  const [task] = useState(() => sample(AGENT_TASKS)!);
+  const [skin] = useState(() => sample(AGENT_SKINS));
+  const [task] = useState(() => sample(AGENT_TASKS));
+
   const [spawnDelay] = useState(() =>
     randomDelay(SPAWN_DELAY_MIN, SPAWN_DELAY_RANGE),
   );
@@ -53,8 +54,6 @@ export const ActorAgent = () => {
 
   const config = (atlasConfig as AtlasConfig).actors[skin];
   const bubbleConfig = (atlasConfig as AtlasConfig).actors.bubble;
-
-  const canSeeText = phase === "spawn" || phase === "working";
 
   const play = useCallback(
     (animation: string, nextPhase: Phase) => {
@@ -91,9 +90,12 @@ export const ActorAgent = () => {
   return (
     <div
       className="group relative cursor-help"
-      style={{ width: config.width, height: config.height }}
+      style={{
+        width: config.width,
+        height: config.height
+      }}
     >
-      {canSeeText ? (
+      {phase === "spawn" || phase === "working" ? (
         <div className="absolute bottom-14 right-1 hidden group-hover:block">
           <div className="absolute left-0 right-0 top-0 bottom-1 px-1">
             <Marquee>
