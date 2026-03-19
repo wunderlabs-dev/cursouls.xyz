@@ -53,15 +53,15 @@ const Home = () => {
         </Link>
 
         <div className="grid grid-cols-4 items-end justify-items-center w-full">
-          {SCENE_GRID.flat().map((actor, index) => {
-            if (actor.type === "static") {
-              return <AtlasStatic key={index} atlasConfig={atlasConfig as AtlasConfig} actor={actor.actor} />;
-            }
-            if (actor.type === "agent") {
-              return <ActorAgent key={index} />;
-            }
-            return <div key={index} className="col-span-1" />;
-          })}
+          {SCENE_GRID.flat().map((cell, index) =>
+            cell.type === "static" ? (
+              <AtlasStatic key={index} atlasConfig={atlasConfig as AtlasConfig} actor={cell.actor} />
+            ) : cell.type === "agent" ? (
+              <ActorAgent key={index} />
+            ) : (
+              <div key={index} className="col-span-1" />
+            ),
+          )}
         </div>
       </div>
 
