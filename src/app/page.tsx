@@ -13,6 +13,27 @@ import { ActorBarista } from "@/components/actor-barista";
 import { AtlasStatic } from "@/components/atlas-static";
 import { SvgIconCursor } from "@/components/svg-icon-cursor";
 
+type SceneCell =
+  | { type: "empty" }
+  | { type: "agent" }
+  | { type: "static"; actor: string }
+  | { type: "link"; actor: string; href: string };
+
+const SCENE_GRID: SceneCell[] = [
+  { type: "empty" },
+  { type: "static", actor: "vertical-table-01" },
+  { type: "agent" },
+  { type: "static", actor: "plant" },
+  { type: "link", actor: "octocat", href: "https://github.com/wunderlabs-dev/cursouls" },
+  { type: "agent" },
+  { type: "static", actor: "plant" },
+  { type: "agent" },
+  { type: "empty" },
+  { type: "static", actor: "round-table-02" },
+  { type: "agent" },
+  { type: "empty" },
+];
+
 const renderers = {
   marius: (chunks: ReactNode) => (
     <a
@@ -60,34 +81,39 @@ const Home = () => {
         </Link>
 
         <div className="grid grid-cols-4 items-end justify-items-center w-full">
-          <div className="col-span-1" />
-          <AtlasStatic
-            atlasConfig={atlasConfig as AtlasConfig}
-            actor="vertical-table-01"
-          />
-          <ActorAgent />
-          <AtlasStatic atlasConfig={atlasConfig as AtlasConfig} actor="plant" />
-          <a
-            href="https://github.com/wunderlabs-dev/cursouls"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="cursor-pointer"
-          >
-            <AtlasStatic
-              atlasConfig={atlasConfig as AtlasConfig}
-              actor="octocat"
-            />
-          </a>
-          <ActorAgent />
-          <AtlasStatic atlasConfig={atlasConfig as AtlasConfig} actor="plant" />
-          <ActorAgent />
-          <div className="col-span-1" />
-          <AtlasStatic
-            atlasConfig={atlasConfig as AtlasConfig}
-            actor="round-table-02"
-          />
-          <ActorAgent />
-          <div className="col-span-1" />
+          {SCENE_GRID.map((cell, index) => {
+            if (cell.type === "empty") {
+              return <div key={index} className="col-span-1" />;
+            }
+            if (cell.type === "agent") {
+              return <ActorAgent key={index} />;
+            }
+            if (cell.type === "static") {
+              return (
+                <AtlasStatic
+                  key={index}
+                  atlasConfig={atlasConfig as AtlasConfig}
+                  actor={cell.actor}
+                />
+              );
+            }
+            if (cell.type === "link") {
+              return (
+                <a
+                  key={index}
+                  href={cell.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="cursor-pointer"
+                >
+                  <AtlasStatic
+                    atlasConfig={atlasConfig as AtlasConfig}
+                    actor={cell.actor}
+                  />
+                </a>
+              );
+            }
+          })}
         </div>
       </div>
 

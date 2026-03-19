@@ -1,3 +1,5 @@
+export const BASE_URL = "https://cursouls.xyz";
+
 export const SPAWN_DELAY_MIN = 1000;
 export const SPAWN_DELAY_RANGE = 2500;
 export const WORKING_DURATION_MIN = 4000;
