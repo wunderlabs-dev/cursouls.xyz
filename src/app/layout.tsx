@@ -12,6 +12,17 @@ export const metadata: Metadata = {
   icons: {
     icon: "/favicon.svg",
   },
+  openGraph: {
+    title: copy.title,
+    description: copy.description,
+    images: [{ url: "/images/og.png", width: 1200, height: 630 }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: copy.title,
+    description: copy.description,
+    images: ["/images/og.png"],
+  },
 };
 
 const RootLayout = async ({ children }: Readonly<{ children: React.ReactNode }>) => {
