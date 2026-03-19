@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://cursouls.xyz">
-    <img src="public/images/og.png" alt="Cursouls" width="600" style="border-radius: 12px;" />
+    <img src="public/images/og.png" alt="Cursouls" width="600" style="display: block; border-radius: 12px;" />
   </a>
 </p>
 

@@ -31,7 +31,7 @@ const RootLayout = async ({ children }: Readonly<{ children: React.ReactNode }>)
 
   return (
     <html lang={locale}>
-      <body className="font-sans bg-cream text-dark">
+      <body className="font-sans bg-cream text-dark selection:bg-dark selection:text-cream">
         <NextIntlClientProvider locale={locale} messages={messages}>
           {children}
         </NextIntlClientProvider>
