@@ -12,7 +12,7 @@
 
 <p align="center">
   <a href="https://cursouls.xyz">Website</a> &middot;
-  <a href="https://github.com/vtemian/cursouls">Extension</a>
+  <a href="https://github.com/wunderlabs-dev/cursouls">Extension</a>
 </p>
 
 ---
