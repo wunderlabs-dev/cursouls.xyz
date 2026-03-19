@@ -55,10 +55,13 @@ const ActorAgent = () => {
     play("working", "working");
     clearTimeout(workingTimerRef.current);
 
-    workingTimerRef.current = setTimeout(() => {
-      const animation = sample(AGENT_RANDOM_ANIMATIONS)!;
-      play(animation, animation as Phase);
-    }, randomDelay(WORKING_DURATION_MIN, WORKING_DURATION_RANGE));
+    workingTimerRef.current = setTimeout(
+      () => {
+        const animation = sample(AGENT_RANDOM_ANIMATIONS)!;
+        play(animation, animation as Phase);
+      },
+      randomDelay(WORKING_DURATION_MIN, WORKING_DURATION_RANGE),
+    );
   }, [play]);
 
   const onComplete = useCallback(() => {

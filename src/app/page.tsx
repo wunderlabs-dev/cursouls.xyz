@@ -13,15 +13,24 @@ import { ActorBarista } from "@/components/actor-barista";
 import { AtlasStatic } from "@/components/atlas-static";
 import { SvgIconCursor } from "@/components/svg-icon-cursor";
 
-
 const renderers = {
   marius: (chunks: ReactNode) => (
-    <a href="https://x.com/balajmarius" target="_blank" rel="noopener noreferrer" className="pb-1 border-b border-dark/40 transition-colors duration-200 hover:border-dark hover:text-dark">
+    <a
+      href="https://x.com/balajmarius"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="pb-1 border-b border-dark/40 transition-colors duration-200 hover:border-dark hover:text-dark"
+    >
       {chunks}
     </a>
   ),
   vlad: (chunks: ReactNode) => (
-    <a href="https://x.com/vtemian" target="_blank" rel="noopener noreferrer" className="pb-1 border-b border-dark/40 transition-colors duration-200 hover:border-dark hover:text-dark">
+    <a
+      href="https://x.com/vtemian"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="pb-1 border-b border-dark/40 transition-colors duration-200 hover:border-dark hover:text-dark"
+    >
       {chunks}
     </a>
   ),
@@ -40,7 +49,10 @@ const Home = () => {
           <p className="max-w-sm text-base text-center text-pretty leading-relaxed text-dark/60">{t("description")}</p>
         </div>
 
-        <Link href="/" className="flex items-center gap-4 px-5 py-3 text-sm bg-dark text-cream transition-transform duration-100 ease-out hover:-translate-y-0.5 active:scale-95">
+        <Link
+          href="/"
+          className="flex items-center gap-4 px-5 py-3 text-sm bg-dark text-cream transition-transform duration-100 ease-out hover:-translate-y-0.5 active:scale-95"
+        >
           <SvgIconCursor className="h-4 w-4" />
           {t("buttonText")}
         </Link>
@@ -50,7 +62,12 @@ const Home = () => {
           <AtlasStatic atlasConfig={atlasConfig as AtlasConfig} actor="vertical-table-01" />
           <ActorAgent />
           <AtlasStatic atlasConfig={atlasConfig as AtlasConfig} actor="plant" />
-          <a href="https://github.com/vtemian/cursouls" target="_blank" rel="noopener noreferrer" className="cursor-pointer">
+          <a
+            href="https://github.com/vtemian/cursouls"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="cursor-pointer"
+          >
             <AtlasStatic atlasConfig={atlasConfig as AtlasConfig} actor="octocat" />
           </a>
           <ActorAgent />
