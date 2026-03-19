@@ -13,7 +13,7 @@ interface AnimationProps {
   onComplete?: () => void;
 }
 
-const Animation = ({
+export const Animation = ({
   atlasConfig,
   animationConfig,
   animationName,
@@ -43,5 +43,3 @@ const Animation = ({
     />
   );
 };
-
-export { Animation };

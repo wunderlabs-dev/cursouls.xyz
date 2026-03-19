@@ -8,7 +8,7 @@ import atlasConfig from "@/data/atlas.json";
 
 import { AtlasSprite } from "@/components/atlas-sprite";
 
-const ActorBarista = () => {
+export const ActorBarista = () => {
   const spriteRef = useRef<AtlasSpriteHandle>(null);
   const config = (atlasConfig as AtlasConfig).actors["long-counter"];
 
@@ -30,5 +30,3 @@ const ActorBarista = () => {
     </button>
   );
 };
-
-export { ActorBarista };

@@ -37,7 +37,7 @@ import atlasConfig from "@/data/atlas.json";
 import { Animation } from "@/components/animation";
 import { AtlasSprite } from "@/components/atlas-sprite";
 
-const ActorAgent = () => {
+export const ActorAgent = () => {
   const [phase, setPhase] = useState<Phase>("idle");
 
   const [skin] = useState(() => sample(AGENT_SKINS)!);
@@ -120,5 +120,3 @@ const ActorAgent = () => {
     </div>
   );
 };
-
-export { ActorAgent };

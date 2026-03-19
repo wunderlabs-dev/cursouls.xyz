@@ -16,7 +16,7 @@ interface AtlasSpriteProps {
   onComplete?: () => void;
 }
 
-const AtlasSprite = forwardRef<AtlasSpriteHandle, AtlasSpriteProps>(
+export const AtlasSprite = forwardRef<AtlasSpriteHandle, AtlasSpriteProps>(
   ({ atlasConfig, animationConfig, defaultAnimation, onComplete }, ref) => {
     const idleKey = first(animationConfig.anims)?.key;
 
@@ -63,5 +63,3 @@ const AtlasSprite = forwardRef<AtlasSpriteHandle, AtlasSpriteProps>(
 );
 
 AtlasSprite.displayName = "AtlasSprite";
-
-export { AtlasSprite };

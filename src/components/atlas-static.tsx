@@ -11,7 +11,7 @@ interface AtlasStaticProps {
   actor: string;
 }
 
-const AtlasStatic = ({ atlasConfig, actor }: AtlasStaticProps) => {
+export const AtlasStatic = ({ atlasConfig, actor }: AtlasStaticProps) => {
   return (
     <Animation
       atlasConfig={atlasConfig}
@@ -20,5 +20,3 @@ const AtlasStatic = ({ atlasConfig, actor }: AtlasStaticProps) => {
     />
   );
 };
-
-export { AtlasStatic };
