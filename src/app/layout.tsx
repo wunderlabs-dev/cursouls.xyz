@@ -9,6 +9,9 @@ import copy from "@/data/copy.json";
 export const metadata: Metadata = {
   title: copy.title,
   description: copy.description,
+  icons: {
+    icon: "/favicon.svg",
+  },
 };
 
 const RootLayout = async ({ children }: Readonly<{ children: React.ReactNode }>) => {
