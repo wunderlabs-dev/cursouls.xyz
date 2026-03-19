@@ -16,12 +16,12 @@ import { SvgIconCursor } from "@/components/svg-icon-cursor";
 
 const renderers = {
   marius: (chunks: ReactNode) => (
-    <a href="https://x.com/balajmarius" target="_blank" rel="noopener noreferrer" className="pb-1 border-b border-dark/40 hover:border-dark hover:text-dark">
+    <a href="https://x.com/balajmarius" target="_blank" rel="noopener noreferrer" className="pb-1 border-b border-dark/40 transition-colors duration-200 hover:border-dark hover:text-dark">
       {chunks}
     </a>
   ),
   vlad: (chunks: ReactNode) => (
-    <a href="https://x.com/vtemian" target="_blank" rel="noopener noreferrer" className="pb-1 border-b border-dark/40 hover:border-dark hover:text-dark">
+    <a href="https://x.com/vtemian" target="_blank" rel="noopener noreferrer" className="pb-1 border-b border-dark/40 transition-colors duration-200 hover:border-dark hover:text-dark">
       {chunks}
     </a>
   ),
@@ -36,11 +36,11 @@ const Home = () => {
 
       <div className="flex flex-col items-center justify-center gap-8">
         <div className="flex flex-col items-center justify-center max-w-xl gap-4">
-          <h1 className="text-4xl">{t("title")}</h1>
-          <p className="max-w-sm text-base text-center leading-relaxed text-dark/60">{t("description")}</p>
+          <h1 className="text-4xl text-balance">{t("title")}</h1>
+          <p className="max-w-sm text-base text-center text-pretty leading-relaxed text-dark/60">{t("description")}</p>
         </div>
 
-        <Link href="/" className="flex items-center gap-4 px-4 py-2 text-sm bg-dark text-cream">
+        <Link href="/" className="flex items-center gap-4 px-5 py-3 text-sm bg-dark text-cream transition-transform duration-100 ease-out hover:-translate-y-0.5 active:scale-95">
           <SvgIconCursor className="h-4 w-4" />
           {t("buttonText")}
         </Link>

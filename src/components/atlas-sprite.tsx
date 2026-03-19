@@ -38,7 +38,7 @@ const AtlasSprite = forwardRef<AtlasSpriteHandle, AtlasSpriteProps>(
       () => ({
         play,
         get current() {
-          return animationName;
+          return animationName ?? "";
         },
       }),
       [play, animationName],
