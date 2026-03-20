@@ -1,6 +1,8 @@
 "use client";
 
+import { useMemo } from "react";
 import { twMerge } from "tailwind-merge";
+import { useMediaQuery } from "usehooks-ts";
 
 import type { AtlasConfig } from "@/types";
 
@@ -35,7 +37,22 @@ const SCENE_GRID: SceneCell[] = [
   { type: "empty" },
 ];
 
+const SCENE_GRID_XS: SceneCell[] = [
+  { type: "static", actor: "vertical-table-01" },
+  { type: "agent" },
+  { type: "static", actor: "plant" },
+];
+
 export const Scene = () => {
+  const sm = useMediaQuery("(max-width: 639px)");
+
+  const grid = useMemo(() => {
+    if (sm) {
+      return SCENE_GRID_XS;
+    }
+    return SCENE_GRID;
+  }, [sm]);
+
   return (
     <div
       className={twMerge(
@@ -43,7 +60,7 @@ export const Scene = () => {
         "sm:grid-cols-4",
       )}
     >
-      {SCENE_GRID.map((cell, index) => {
+      {grid.map((cell, index) => {
         if (cell.type === "empty") {
           return <div key={index} className="col-span-1" />;
         }

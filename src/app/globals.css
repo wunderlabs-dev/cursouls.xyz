@@ -18,3 +18,7 @@
 @utility bg-atlas-sprite {
   background-image: url("/images/atlas.png");
 }
+
+@utility bg-atlas-barista {
+  background-image: url("/images/barista.png");
+}
