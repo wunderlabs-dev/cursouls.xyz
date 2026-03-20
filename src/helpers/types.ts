@@ -1,4 +1,4 @@
-type Phase =
+type AnimationName =
   | "idle"
   | "spawn"
   | "working"
@@ -6,4 +6,4 @@ type Phase =
   | "task-failed"
   | "clarification-needed";
 
-export type { Phase };
+export type { AnimationName };

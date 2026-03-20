@@ -18,7 +18,7 @@ const Marquee = ((
 ).default ?? ReactFastMarquee) as ComponentType<{ children?: ReactNode }>;
 
 import type { AtlasConfig, AtlasSpriteHandle } from "@/types";
-import type { Phase } from "@/helpers/types";
+import type { AnimationName } from "@/helpers/types";
 
 import {
   AGENT_SKINS,
@@ -40,14 +40,11 @@ import { Animation } from "@/components/animation";
 import { AtlasSprite } from "@/components/atlas-sprite";
 
 export const ActorAgent = () => {
-  const [phase, setPhase] = useState<Phase>("idle");
+  const [animationName, setAnimationName] = useState<AnimationName>("idle");
 
-  const [skin] = useState(() => sample(AGENT_SKINS));
-  const [task] = useState(() => sample(AGENT_TASKS));
-
-  const [spawnDelay] = useState(() =>
-    randomDelay(SPAWN_DELAY_MIN, SPAWN_DELAY_RANGE),
-  );
+  const skin = useRef(sample(AGENT_SKINS)).current;
+  const task = useRef(sample(AGENT_TASKS)).current;
+  const delay = useRef(randomDelay(SPAWN_DELAY_MIN, SPAWN_DELAY_RANGE)).current;
 
   const spriteRef = useRef<AtlasSpriteHandle>(null);
   const workingTimerRef = useRef<ReturnType<typeof setTimeout> | undefined>(
@@ -58,9 +55,9 @@ export const ActorAgent = () => {
   const bubbleConfig = (atlasConfig as AtlasConfig).actors.bubble;
 
   const play = useCallback(
-    (animation: string, nextPhase: Phase) => {
+    (animation: string, nextAnimationName: AnimationName) => {
       spriteRef.current?.play(`${skin}/${animation}`);
-      setPhase(nextPhase);
+      setAnimationName(nextAnimationName);
     },
     [skin],
   );
@@ -72,14 +69,14 @@ export const ActorAgent = () => {
     workingTimerRef.current = setTimeout(
       () => {
         const animation = sample(AGENT_RANDOM_ANIMATIONS)!;
-        play(animation, animation as Phase);
+        play(animation, animation as AnimationName);
       },
       randomDelay(WORKING_DURATION_MIN, WORKING_DURATION_RANGE),
     );
   }, [play]);
 
   const onComplete = useCallback(() => {
-    setPhase((current) => {
+    setAnimationName((current) => {
       if (current !== "idle" && current !== "working") {
         queueMicrotask(startWorkingCycle);
       }
@@ -87,7 +84,7 @@ export const ActorAgent = () => {
     });
   }, [startWorkingCycle]);
 
-  useTimeout(() => play("spawn", "spawn"), spawnDelay);
+  useTimeout(() => play("spawn", "spawn"), delay);
 
   return (
     <div
@@ -97,7 +94,7 @@ export const ActorAgent = () => {
         height: config.height,
       }}
     >
-      {phase === "spawn" || phase === "working" ? (
+      {animationName === "spawn" || animationName === "working" ? (
         <div
           className={twMerge(
             "absolute bottom-14 right-1",
