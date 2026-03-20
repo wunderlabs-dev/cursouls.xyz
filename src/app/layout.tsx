@@ -1,6 +1,7 @@
 import "./globals.css";
 
 import type { Metadata } from "next";
+import { GoogleAnalytics } from "@next/third-parties/google";
 import { NextIntlClientProvider } from "next-intl";
 import { getLocale, getMessages } from "next-intl/server";
 
@@ -55,6 +56,7 @@ const RootLayout = async ({
           {children}
         </NextIntlClientProvider>
       </body>
+      <GoogleAnalytics gaId="G-HRF5PP3522" />
     </html>
   );
 };
